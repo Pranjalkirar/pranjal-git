@@ -12,8 +12,8 @@ from pathlib import Path
 SCENE_RE = re.compile(r"^SCENE\s+(\d+)\s*$", re.I | re.M)
 EVENT_RE = re.compile(r"(?ms)^\*\*(?P<label>[^*\n]+)\*\*\s*\nStart:\s*\((?P<start>[^)]+)\)\s*\|\s*End:\s*\((?P<end>[^)]+)\)\s*\n(?P<body>.*?)(?=^\*\*[^*\n]+\*\*\s*$|\Z)")
 TIME_RE = re.compile(r"^(\d+):(\d{2})\.(\d{2})$")
-HOOK_RE = re.compile(r"\b(betray\w*|cheat\w*|murder\w*|kill\w*|dead|die|blood|slap\w*|struck|hit|gun|knife|pregnan\w*|secret|truth|identity|duke|soldier|marry|wedding|divorce|abandon\w*|revenge|threat\w*|expose|arrest|heir|poison\w*|danger|mistress|worthless|bride|groom|husband|wife|father|mother|son|daughter|turn around|how dare|never|cannot|can't)\b", re.I)
-CLIFF_RE = re.compile(r"\b(if|unless|until|before|but|wait|stop|who|what|where|why|how|secret|truth|never|will|must|cannot|can't|don't know|you have no idea|what do you mean|just wait|promise)\b", re.I)
+HOOK_RE = re.compile(r"\b(betray\w*|cheat\w*|murder\w*|kill\w*|dead|die|blood|slap\w*|struck|hit|gun|knife|pregnan\w*|secret|truth|identity|duke|soldier|marry|wedding|divorce|abandon\w*|revenge|threat\w*|expose|arrest|heir|poison\w*|danger|mistress|worthless|bride|groom|husband|wife|father|mother|son|daughter|turn around|how dare|never|cannot|can't|crown|gutter|ten days|door|closed|witness|humiliated)\b", re.I)
+CLIFF_RE = re.compile(r"\b(if|unless|until|before|but|wait|stop|who|what|where|why|how|secret|truth|never|will|must|cannot|can't|don't know|you have no idea|what do you mean|just wait|promise|make sure|no one sees|tonight|before the hearing|before hearing)\b", re.I)
 ACTION_RE = re.compile(r"\b(slaps?|strikes?|hits?|punch\w*|kicks?|falls?|collapses?|gasps?|screams?|grabs?|draws?|reveals?|opens?|bursts?|throws?|shatters?|weapon|gun|knife|kneels?|stumbles?)\b", re.I)
 REVEAL_RE = re.compile(r"\b(reveal\w*|appear\w*|enter\w*|burst\w*|open\w*|turn\w*|gasp\w*|collapse\w*|draw\w*|point\w*|stare\w*)\b", re.I)
 
