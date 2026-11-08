@@ -1,0 +1,10 @@
+# Keep screenplay material and derived outputs out of the public repository
+*.zip
+.env
+.env.*
+promoscout_output/
+promoscout_run/
+parsed_output/
+*_raw_outputs/
+*.jsonl
+*.csv
