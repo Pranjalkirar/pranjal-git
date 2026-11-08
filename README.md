@@ -6,15 +6,13 @@ A Python prototype that finds plausible 20-60 second promotional windows in time
 
 Requirements: Python 3.10+. The discovery runner uses only Python's standard library.
 
-\`\`\`bash
-python promoscout.py "path/to/screenplay-pack.zip" --out promoscout_output
-\`\`\`
+    python promoscout.py "path/to/screenplay-pack.zip" --out promoscout_output
 
 The output folder contains:
-- \`episodes.jsonl\`: parsed episode metadata.
-- \`events.jsonl\`: timestamped screenplay event blocks.
-- \`candidates.jsonl\` and \`candidates.csv\`: candidate windows with start/end timestamps, hook/cliffhanger anchors and discovery scores.
-- \`run_report.json\`: run summary and parsing warnings.
+- episodes.jsonl: parsed episode metadata.
+- events.jsonl: timestamped screenplay event blocks.
+- candidates.jsonl and candidates.csv: candidate windows with start/end timestamps, hook/cliffhanger anchors and discovery scores.
+- run_report.json: run summary and parsing warnings.
 
 Candidate windows are one continuous segment from one episode. The script aims for 20-60 seconds and up to four non-near-duplicate candidates per episode.
 
@@ -23,20 +21,18 @@ Candidate windows are one continuous segment from one episode. The script aims f
 A separate, provider-swappable evaluator can assess the strongest candidates using an OpenAI-compatible Chat Completions API. It is not called unless configured.
 
 Linux/macOS:
-\`\`\`bash
-export PROMO_LLM_BASE_URL="https://api.openai.com/v1"
-export PROMO_LLM_API_KEY="YOUR_API_KEY"
-export PROMO_LLM_MODEL="YOUR_MODEL_NAME"
-python evaluate_candidates.py promoscout_output/candidates.jsonl --limit 20 --output promoscout_output/llm_evaluations.jsonl
-\`\`\`
+
+    export PROMO_LLM_BASE_URL="https://api.openai.com/v1"
+    export PROMO_LLM_API_KEY="YOUR_API_KEY"
+    export PROMO_LLM_MODEL="YOUR_MODEL_NAME"
+    python evaluate_candidates.py promoscout_output/candidates.jsonl --limit 20 --output promoscout_output/llm_evaluations.jsonl
 
 PowerShell:
-\`\`\`powershell
-$env:PROMO_LLM_BASE_URL="https://api.openai.com/v1"
-$env:PROMO_LLM_API_KEY="YOUR_API_KEY"
-$env:PROMO_LLM_MODEL="YOUR_MODEL_NAME"
-python evaluate_candidates.py promoscout_output/candidates.jsonl --limit 20 --output promoscout_output/llm_evaluations.jsonl
-\`\`\`
+
+    $env:PROMO_LLM_BASE_URL="https://api.openai.com/v1"
+    $env:PROMO_LLM_API_KEY="YOUR_API_KEY"
+    $env:PROMO_LLM_MODEL="YOUR_MODEL_NAME"
+    python evaluate_candidates.py promoscout_output/candidates.jsonl --limit 20 --output promoscout_output/llm_evaluations.jsonl
 
 Keep API keys in environment variables. The current assignment's supplied-pack editorial review was performed with ChatGPT on the top 20 discovery candidates; the optional endpoint above was not used for that review. The private raw-output package preserves those review records separately.
 
